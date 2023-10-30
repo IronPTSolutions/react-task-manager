@@ -13,10 +13,10 @@ router.patch("/task-groups/:id", groups.update);
 router.get("/task-groups/:id", groups.detail);
 
 router.get("/tasks", auth.isAuthenticated, tasks.list);
-router.get("/tasks/:id", tasks.detail);
-router.post("/tasks", tasks.create);
-router.patch("/tasks", tasks.update);
-router.delete("/tasks/:id", tasks.delete);
+router.get("/tasks/:id", auth.isAuthenticated, tasks.detail);
+router.post("/tasks", auth.isAuthenticated, tasks.create);
+router.patch("/tasks/:id", auth.isAuthenticated, tasks.update);
+router.delete("/tasks/:id", auth.isAuthenticated, tasks.delete);
 
 router.post("/users", upload.single("avatar"), users.create);
 router.post("/login", users.login);

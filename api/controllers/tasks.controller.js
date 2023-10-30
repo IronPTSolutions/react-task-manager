@@ -39,7 +39,7 @@ module.exports.create = (req, res, next) => {
 };
 
 module.exports.update = (req, res, next) => {
-  Task.findByIdAndUpdate(req.params.id, {
+  Task.findByIdAndUpdate(req.params.id, req.body, {
     runValidators: true,
     new: true,
   })

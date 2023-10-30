@@ -15,7 +15,7 @@ export function Unauthenticated({ children }) {
   const { user } = useAuthContext();
 
   if (user) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/" />;
   } else {
     return children;
   }

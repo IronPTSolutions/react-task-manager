@@ -9,7 +9,7 @@ module.exports.list = (req, res, next) => {
     criteria.name = name;
   }
 
-  TaskGroup.find(criterial)
+  TaskGroup.find(criteria)
     .then((group) => res.json(group))
     .catch((error) => next(error));
 };

@@ -1,19 +1,48 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { deleteTask, getTask } from "../../services/api-service";
 
 function TaskDetail() {
   const [data, setData] = useState(null);
   const params = useParams();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    fetch(`http://localhost:3000/v1/tasks/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      });
+    getTask(params.id).then((data) => {
+      setData(data);
+    });
   }, []);
 
-  return <div>Task {data?.title}</div>;
+  if (!data) {
+    return <div>Loading....</div>;
+  }
+
+  return (
+    <div>
+      <h1>Task detail</h1>
+
+      <p>{data.title}</p>
+      <p>{data.description}</p>
+      <p>{data.due_to}</p>
+      <p>....</p>
+
+      <button
+        onClick={() => {
+          deleteTask(data.id).then(() => {
+            navigate("/tasks");
+          });
+        }}
+        className="btn btn-danger me-3"
+      >
+        Delete
+      </button>
+
+      <Link to={`/tasks/${data.id}/edit`} className="btn btn-primary">
+        Edit
+      </Link>
+    </div>
+  );
 }
 
 export default TaskDetail;

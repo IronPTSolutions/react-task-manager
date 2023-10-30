@@ -5,6 +5,7 @@ import NavBar from "./components/navbar";
 import LoginPage from "./pages/login/login";
 import { Authenticated, Unauthenticated } from "./components/authenticated";
 import SignupPage from "./pages/signup/signup";
+import TaskForm from "./pages/tasks/form";
 
 function App() {
   return (
@@ -37,6 +38,25 @@ function App() {
               </Unauthenticated>
             }
           />
+
+          <Route
+            path="/tasks/new"
+            element={
+              <Authenticated>
+                <TaskForm />
+              </Authenticated>
+            }
+          />
+
+          <Route
+            path="/tasks/:id/edit"
+            element={
+              <Authenticated>
+                <TaskForm />
+              </Authenticated>
+            }
+          />
+
           <Route
             path="/tasks/:id"
             element={
