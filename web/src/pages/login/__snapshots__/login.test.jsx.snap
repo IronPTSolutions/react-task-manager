@@ -1,0 +1,61 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Login/> > happy case: render OK 1`] = `
+<body>
+  <div>
+    <div>
+      <h1>
+        Login
+      </h1>
+      <form
+        data-testid="login-form"
+      >
+        <div
+          class="mb-3"
+        >
+          <label
+            class="form-label"
+            for="email"
+          >
+            Email address
+          </label>
+          <input
+            class="form-control"
+            id="email"
+            name="email"
+            type="email"
+          />
+        </div>
+        <div
+          class="mb-3"
+        >
+          <label
+            class="form-label"
+            for="exampleInputPassword1"
+          >
+            Password
+          </label>
+          <input
+            class="form-control"
+            id="exampleInputPassword1"
+            name="password"
+            type="password"
+          />
+        </div>
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          Login
+        </button>
+        <a
+          class="btn btn-link"
+          href="/signup"
+        >
+          Sign up
+        </a>
+      </form>
+    </div>
+  </div>
+</body>
+`;

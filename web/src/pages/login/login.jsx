@@ -18,7 +18,7 @@ function LoginPage() {
     <div>
       <h1>Login</h1>
 
-      <form onSubmit={handleSubmit(handleLogin)}>
+      <form data-testid="login-form" onSubmit={handleSubmit(handleLogin)}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
             Email address
