@@ -2,7 +2,7 @@ import axios from "axios";
 
 const service = axios.create({
   withCredentials: true,
-  baseURL: import.meta.env.REACT_APP_BASE_API_URL || "http://localhost:3000/v1",
+  baseURL: import.meta.env.VITE_BASE_API_URL || "http://localhost:3000/v1",
 });
 
 service.interceptors.response.use(
